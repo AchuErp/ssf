@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSF Website</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Background Video */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Dark Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: -1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.15) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 600;
+            margin-right: 25px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #00ff88 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 22px;
+        }
+
+
+
+body{
+            background:#f2f3f5;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        .news-section{
+            padding:70px 0;
+        }
+
+        .title{
+            font-size:70px;
+            font-weight:900;
+        }
+
+        .view-btn{
+            border:1px solid #cfcfcf;
+            border-radius:40px;
+            padding:14px 28px;
+            color:#000;
+            font-weight:600;
+            text-decoration:none;
+            transition:.3s;
+        }
+
+        .view-btn:hover{
+            background:#000;
+            color:#fff;
+        }
+
+        .news-card{
+            border:none;
+            border-radius:30px;
+            overflow:hidden;
+            background:#fff;
+            transition:.3s;
+            height:100%;
+        }
+
+        .news-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 10px 25px rgba(0,0,0,.15);
+        }
+
+        .news-img{
+            position:relative;
+            overflow:hidden;
+        }
+
+        .news-img img{
+            width:100%;
+            height:265px;
+            object-fit:cover;
+        }
+
+        .badge-news{
+            position:absolute;
+            top:18px;
+            left:18px;
+            background:#ececec;
+            color:#555;
+            padding:8px 18px;
+            border-radius:25px;
+            font-size:12px;
+            font-weight:bold;
+        }
+
+        .news-overlay{
+            position:absolute;
+            inset:0;
+            background:linear-gradient(to top,
+            rgba(80,0,0,.70),
+            rgba(0,0,0,.15));
+        }
+
+        .overlay-text{
+            position:absolute;
+            bottom:20px;
+            left:20px;
+            color:#fff;
+        }
+
+        .overlay-text h2{
+            font-size:38px;
+            font-weight:800;
+            margin:0;
+        }
+
+        .overlay-text h5{
+            background:#8f1212;
+            display:inline-block;
+            padding:6px 14px;
+            border-radius:8px;
+            margin-bottom:12px;
+        }
+
+        .card-body{
+            padding:25px;
+        }
+
+        .date{
+            color:#9a9a9a;
+            font-size:13px;
+            text-transform:uppercase;
+            margin-bottom:15px;
+        }
+
+        .card-title{
+            font-size:28px;
+            font-weight:700;
+            line-height:1.3;
+        }
+
+        @media(max-width:992px){
+
+            .title{
+                font-size:50px;
+            }
+
+            .news-img img{
+                height:220px;
+            }
+
+        }
+
+        @media(max-width:768px){
+
+            .title{
+                font-size:40px;
+            }
+
+            .header{
+                flex-direction:column;
+                align-items:flex-start!important;
+                gap:20px;
+            }
+
+        }
+
+
+
+             body {
+            background: #eef1f3;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .video-section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            font-size: 70px;
+            font-weight: 800;
+            color: #000;
+        }
+
+        .view-btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            border: 1px solid #d5d5d5;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .view-btn:hover {
+            background: #198754;
+            color: #fff;
+        }
+
+        .video-card {
+            border: none;
+            overflow: hidden;
+            border-radius: 25px;
+            background: #fff;
+            transition: .3s;
+            height: 100%;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .video-image {
+            position: relative;
+        }
+
+        .video-image img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+
+        .category {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            padding: 7px 15px;
+            border-radius: 25px;
+            font-size: 13px;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, .95);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .video-tag {
+            position: absolute;
+            right: 18px;
+            bottom: 18px;
+            background: rgba(0, 0, 0, .75);
+            color: #fff;
+            border-radius: 25px;
+            padding: 6px 14px;
+            font-size: 13px;
+        }
+
+        .video-content {
+            padding: 22px;
+        }
+
+        .date {
+            color: #9a9a9a;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        @media(max-width:768px) {
+
+            .section-title {
+                font-size: 42px;
+            }
+
+            .video-image img {
+                height: 220px;
+            }
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid"> 
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="ss (2).mp4"
+            type="video/mp4">
+    </video>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+
+            <img src="logo no b.png" width="90" height="80" class="me-5">
+
+            <button class="navbar-toggler bg-light" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Campaigns</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Videos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Download</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>SSF KODUNGALLUR DIVISION</h1>
+            <p>Working for Faith, Knowledge and Humanity</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="kd.jpeg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Divition Sahitolsav</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="kd2.jfif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="kd3.jfif" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<section class="news-section">
+
+<div class="container">
+
+<div class="d-flex justify-content-between align-items-center mb-5 header">
+
+<h1 class="title" style="color: white ;">Latest News</h1>
+
+<a href="#" class="view-btn">
+View All News →
+</a>
+
+</div>
+
+<div class="row g-4">
+
+<!-- Card 1 -->
+
+<div class="col-lg-4 col-md-6">
+
+<div class="card news-card">
+
+<div class="news-img">
+
+<img src="sen.avif">
+
+<div class="news-overlay"></div>
+
+<span class="badge-news">SENSORIUM</span>
+
+<div class="overlay-text">
+
+<h5>സെൻസോറിയം 2026</h5>
+
+<h2>മത്സരങ്ങൾ<br>പ്രഖ്യാപിച്ചു</h2>
+
+</div>
+
+</div>
+
+<div class="card-body">
+
+<p class="date">JUN 14, 2026</p>
+
+<h4 class="card-title">
+എസ് എസ് എഫ് സെൻസോറിയം 2026: മത്സരങ്ങൾ പ്രഖ്യാപിച്ചു
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Card 2 -->
+
+<div class="col-lg-4 col-md-6">
+
+<div class="card news-card">
+
+<div class="news-img">
+
+<img src="sen3.avif">
+
+<span class="badge-news">SENSORIUM</span>
+
+</div>
+
+<div class="card-body">
+
+<p class="date">JUN 12, 2026</p>
+
+<h4 class="card-title">
+സമസ്ത നേതൃത്വ സമ്മേളനത്തിൽ
+നിർണായക പ്രഖ്യാപനങ്ങൾ
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Card 3 -->
+
+<div class="col-lg-4 col-md-6">
+
+<div class="card news-card">
+
+<div class="news-img">
+
+<img src="sen4.avif">
+
+<span class="badge-news">SENSORIUM</span>
+
+</div>
+
+<div class="card-body">
+
+<p class="date">JUN 11, 2026</p>
+
+<h4 class="card-title">
+എസ് എസ് എഫ് സ്റ്റുഡന്റ്സ്
+ഇസ്ലാമിക് സെൻസോറിയം
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<section class="video-section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-5 flex-wrap">
+
+            <h1 class="section-title" style="color: white;">Latest Videos</h1>
+
+            <a href="#" class="view-btn">
+                View All Videos
+                <i class="bi bi-chevron-right ms-2"></i>
+            </a>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Video 1 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card video-card">
+
+                    <div class="video-image">
+
+                        <video class="w-100" autoplay muted loop playsinline>
+                            <source src="ss (1).mp4" type="video/mp4">
+                        </video>
+
+                        <div class="category">പ്രകാശ ജീവിതങ്ങൾ</div>
+
+                        <div class="play-btn">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+
+                        <div class="video-tag">
+                            <i class="bi bi-camera-video"></i> Video
+                        </div>
+
+                    </div>
+
+                    <div class="video-content">
+
+                        <div class="date">JUN 22, 2026</div>
+
+                        <div class="title">
+                            താളൂർ ഉലമ സ്റ്റഡി അഭിമുഖം
+                        </div>
+
+                        <div class="description">
+                            സ്റ്റഡി ഗ്രൂപ്പിന്റെ പുതിയ വീഡിയോ ഇവിടെ കാണാം.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Video 2 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card video-card">
+
+                    <div class="video-image">
+
+                        <video class="w-100" autoplay muted loop playsinline>
+                            <source src="ss (2).mp4" type="video/mp4">
+                        </video>
+
+                        <div class="category">ഹൃദയചൈതന്യം</div>
+
+                        <div class="play-btn">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+
+                        <div class="video-tag">
+                            <i class="bi bi-camera-video"></i> Video
+                        </div>
+
+                    </div>
+
+                    <div class="video-content">
+
+                        <div class="date">JUN 20, 2026</div>
+
+                        <div class="title">
+                            സൂക്ഷ്മ ജീവിതത്തിന്റെ അടയാളങ്ങൾ
+                        </div>
+
+                        <div class="description">
+                            പ്രമുഖ പ്രഭാഷകരുടെ പുതിയ വീഡിയോ.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Video 3 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card video-card">
+
+                    <div class="video-image">
+
+                        <video class="w-100" autoplay muted loop playsinline>
+                            <source src="ss (3).mp4" type="video/mp4">
+                        </video>
+
+                        <div class="category">RISALA DECODE</div>
+
+                        <div class="play-btn">
+                            <i class="bi bi-play-fill"></i>
+                        </div>
+
+                        <div class="video-tag">
+                            <i class="bi bi-camera-video"></i> Video
+                        </div>
+
+                    </div>
+
+                    <div class="video-content">
+
+                        <div class="date">JUN 18, 2026</div>
+
+                        <div class="title">
+                            ബദ്രിയ്യത്തിന്റെ രഹസ്യം
+                        </div>
+
+                        <div class="description">
+                            റിസാല ഡികോഡിന്റെ ഏറ്റവും പുതിയ വീഡിയോ.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
