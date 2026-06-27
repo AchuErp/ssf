@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Malayalam Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            font-family:'Noto Sans Malayalam',sans-serif;
+            background:#000;
+        }
+
+        .hero-section{
+            position:relative;
+            width:100%;
+            min-height:100vh;
+            overflow:hidden;
+            display:flex;
+            align-items:center;
+        }
+
+        /* Background Video */
+        .hero-section video{
+            position:absolute;
+            top:50%;
+            left:50%;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            transform:translate(-50%,-50%);
+            z-index:-2;
+        }
+
+        /* Dark Overlay */
+        .hero-section::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.65);
+            z-index:-1;
+        }
+
+        .hero-content{
+            color:#fff;
+            padding:80px 0;
+        }
+
+        .hero-content h5{
+            color:#ffc107;
+            text-transform:uppercase;
+            letter-spacing:3px;
+            margin-bottom:10px;
+        }
+
+        .hero-content h1{
+            font-size:4rem;
+            font-weight:700;
+            margin-bottom:30px;
+        }
+
+        .hero-content p{
+            font-size:1.08rem;
+            line-height:2;
+            text-align:justify;
+            margin-bottom:25px;
+        }
+
+        .btn-custom{
+            background:#ffc107;
+            color:#000;
+            padding:12px 30px;
+            border-radius:50px;
+            font-weight:600;
+            text-decoration:none;
+            transition:.3s;
+        }
+
+        .btn-custom:hover{
+            background:#fff;
+            color:#000;
+        }
+
+        @media(max-width:768px){
+
+            .hero-content h1{
+                font-size:2.5rem;
+            }
+
+            .hero-content p{
+                font-size:15px;
+                line-height:1.9;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+<section class="hero-section">
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline>
+        <source src="ss (2).mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10 hero-content">
+
+                <h5>Welcome</h5>
+
+                <h1>We are SSF</h1>
+
+                <p>
+                    സർഗാത്മക വിദ്യാര്‍ഥിത്വത്തിന്റെ കർമശേഷിയെ ലക്ഷ്യബോധത്തോടെ കൃത്യമായി പ്രയോഗിക്കുകയും,
+                    പ്രസ്തുത ശേഷിയെ രാഷ്ട്രനിർമാണ പ്രക്രിയയിലേക്ക് വിളക്കിച്ചേർക്കുകയും ചെയ്യുകയെന്ന
+                    ദൗത്യമേറ്റെടുത്ത് 1973-ൽ രൂപീകൃതമായ പ്രസ്ഥാനമാണ് എസ്.എസ്.എഫ്.
+                    വിദ്യാർഥി വ്യവഹാരങ്ങളിൽ ധാർമികമായൊരു നവജാഗരണം സാധ്യമാക്കാനും,
+                    സാമൂഹികവും സാംസ്കാരികവും ധിഷണാപരവുമായി സംവദിക്കാൻ അവർക്കു പക്വമായൊരു
+                    ജൈവപരിസരം നിർമിച്ചെടുക്കാനുമാണ് സമസ്ത കേരള ജംഇയ്യത്തുൽ ഉലമ
+                    അതിന്റെ വിദ്യാർഥി പ്രസ്ഥാനത്തിന് രൂപം നൽകുന്നത്.
+                </p>
+
+                <p>
+                    മൂല്യാധിഷ്ഠിത വിദ്യാഭ്യാസം, സാമൂഹിക നീതി, കല,
+                    നിർമാണാത്മക മാധ്യമം, വിമർശനാത്മക രാഷ്ട്രീയം തുടങ്ങിയ
+                    വിശാലമായ വ്യവഹാരമണ്ഡലങ്ങളിൽ എസ്.എസ്.എഫ് നിരന്തരം
+                    ഇടപെട്ടുകൊണ്ടിരിക്കുന്നു. കൃത്യമായ അറിവും ദിശാബോധവും
+                    പകർന്നും, അക്കാദമിക തലങ്ങളോടൊപ്പം സാമൂഹിക യാഥാർത്ഥ്യങ്ങളെ
+                    പ്രായോഗികത കൂടെ പരിചയിപ്പിച്ചും സംഘടന ഈ ദൗത്യം നിർവഹിച്ചു പോരുന്നു.
+                    എസ്.എസ്.എഫ് മുന്നോട്ടു വെച്ച ക്യാമ്പയിനുകൾ, സമരങ്ങള്‍,
+                    ചര്‍ച്ചകള്‍, സംവാദങ്ങള്‍, കലാമേളകള്‍, എക്സ്പോകൾ,
+                    പദ്ധതികൾ തുടങ്ങി ഓരോന്നും സാംസ്കാരിക കേരളം ഉറ്റുനോക്കുന്നു.
+                </p>
+
+                <p>
+                    ദേശീയം, സംസ്ഥാനം, ജില്ല, ഡിവിഷന്‍, സെക്ടര്‍, യൂണിറ്റ്,
+                    ബ്ലോക്ക് തുടങ്ങിയ തലങ്ങളിൽ പ്രവർത്തിക്കുന്ന മികച്ച കേഡര്‍
+                    സംവിധാനവും സംഘാടനവുമാണ് എസ്.എസ്.എഫിന്റേത്.
+                    അരാഷ്ട്രീയത, വർഗീയത, തീവ്രചിന്താഗതികൾ തുടങ്ങിയ സാമൂഹിക
+                    അരക്ഷിതാവസ്ഥകളെ മറികടന്ന്; സഹജീവി സ്നേഹം, സൗഹൃദം,
+                    സഹിഷ്ണുത എന്നീ മൗലിക തത്ത്വങ്ങളിലൂന്നി ഇസ്‌ലാമിന്റെ
+                    സൗന്ദര്യം ആവിഷ്കരിക്കുകയാണ് പ്രസ്ഥാനം.
+                    മിതത്വത്തിന്റെയും പ്രതീക്ഷയുടെയും ഭാഷയിൽ സംസാരിക്കുകയും
+                    മാനുഷ്യമുള്ള ആലോചനകളെ കത്തിച്ചുനിർത്തുകയും ചെയ്യുകയാണ്
+                    എസ്.എസ്.എഫ്.
+                </p>
+
+                <a href="#" class="btn-custom">Read More</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

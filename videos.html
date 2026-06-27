@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Video Gallery</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+
+
+<style>
+
+body{
+
+background:#dfe8ea;
+
+font-family:Arial,Helvetica,sans-serif;
+
+}
+
+.video-section{
+
+padding:80px 0;
+
+}
+
+.small-title{
+
+letter-spacing:4px;
+
+font-size:12px;
+
+color:#8b9297;
+
+margin-bottom:20px;
+
+}
+
+.small-title::before{
+
+content:"";
+
+display:inline-block;
+
+width:40px;
+
+height:1px;
+
+background:#9da7aa;
+
+margin-right:15px;
+
+vertical-align:middle;
+
+}
+
+.main-title{
+
+font-size:72px;
+
+font-weight:800;
+
+}
+
+.sub-title{
+
+font-size:22px;
+
+color:#56636b;
+
+margin-bottom:60px;
+
+}
+
+/* FILTER */
+
+.filter-box{
+
+background:#edf3f5;
+
+padding:15px;
+
+border-radius:20px;
+
+display:flex;
+
+align-items:center;
+
+box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+}
+
+.arrow-btn{
+
+border:none;
+
+background:none;
+
+font-size:30px;
+
+width:55px;
+
+}
+
+.filter-scroll{
+
+display:flex;
+
+gap:12px;
+
+overflow:auto;
+
+flex:1;
+
+}
+
+.filter-scroll::-webkit-scrollbar{
+
+display:none;
+
+}
+
+.filter-scroll button{
+
+border:none;
+
+padding:14px 28px;
+
+border-radius:15px;
+
+background:#d7edf6;
+
+font-weight:600;
+
+white-space:nowrap;
+
+}
+
+.filter-scroll button.active{
+
+background:#fff;
+
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* SEARCH */
+
+.search-box{
+
+margin-top:35px;
+
+margin-left:auto;
+
+width:420px;
+
+max-width:100%;
+
+background:#edf3f5;
+
+border-radius:20px;
+
+padding:18px 25px;
+
+display:flex;
+
+align-items:center;
+
+box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+}
+
+.search-box i{
+
+font-size:22px;
+
+color:#888;
+
+margin-right:15px;
+
+}
+
+.search-box input{
+
+border:none;
+
+background:none;
+
+outline:none;
+
+width:100%;
+
+}
+
+/* CARD */
+
+.video-card{
+
+background:#fff;
+
+border-radius:25px;
+
+overflow:hidden;
+
+transition:.35s;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+height:100%;
+
+}
+
+.video-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.thumb{
+
+position:relative;
+
+}
+
+.thumb video{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    display:block;
+}
+.category{
+
+position:absolute;
+
+top:18px;
+
+left:18px;
+
+background:#222;
+
+color:#fff;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+font-size:13px;
+
+}
+
+.play{
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:80px;
+
+height:80px;
+
+background:#fff;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:40px;
+
+}
+
+.video-tag{
+
+position:absolute;
+
+bottom:15px;
+
+right:15px;
+
+background:#222;
+
+color:#fff;
+
+padding:8px 15px;
+
+border-radius:25px;
+
+font-size:13px;
+
+}
+
+.content{
+
+padding:25px;
+
+}
+
+.date{
+
+font-size:13px;
+
+color:#888;
+
+margin-bottom:15px;
+
+letter-spacing:1px;
+
+}
+
+.content h4{
+
+font-size:30px;
+
+line-height:1.4;
+
+font-weight:700;
+
+margin-bottom:18px;
+
+}
+
+.content p{
+
+color:#666;
+
+line-height:1.8;
+
+}
+
+.circle{
+
+width:55px;
+
+height:55px;
+
+border:1px solid #ddd;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-left:auto;
+
+margin-top:30px;
+
+font-size:22px;
+
+}
+
+.circle:hover{
+
+background:#0d6efd;
+
+color:#fff;
+
+}
+
+@media(max-width:992px){
+
+.main-title{
+
+font-size:52px;
+
+}
+
+.search-box{
+
+width:100%;
+
+}
+
+}
+
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<section class="video-section">
+
+<div class="container">
+
+<!-- Heading -->
+
+<p class="small-title">VIDEO GALLERY</p>
+
+<h1 class="main-title">Videos</h1>
+
+<p class="sub-title">
+Watch our latest videos covering events, programs, and community activities.
+</p>
+
+<!-- Filter Bar -->
+
+<div class="filter-box">
+
+<button class="arrow-btn">
+<i class="bi bi-chevron-left"></i>
+</button>
+
+<div class="filter-scroll">
+
+<button class="active">All</button>
+<button>Ahlussunna Talk</button>
+<button>General</button>
+<button>Highlights</button>
+<button>No More Slop</button>
+<button>Risala Decode</button>
+<button>Theme Song</button>
+
+</div>
+
+<button class="arrow-btn">
+<i class="bi bi-chevron-right"></i>
+</button>
+
+</div>
+
+<!-- Search -->
+
+<div class="search-box">
+
+<i class="bi bi-search"></i>
+
+<input type="text" placeholder="Search videos...">
+
+</div>
+
+<!-- Cards -->
+
+<!-- Cards -->
+<div class="row g-4 mt-2">
+
+    <!-- Card 1 -->
+    <div class="col-lg-4 col-md-6">
+
+        <div class="video-card">
+
+            <div class="thumb">
+
+                <video class="video-thumb" autoplay muted loop playsinline>
+                    <source src="ss (1).mp4" type="video/mp4">
+                </video>
+
+                <span class="category">പ്രകാശ ചിന്തകൾ</span>
+
+                <div class="play">
+                    <i class="bi bi-play-fill"></i>
+                </div>
+
+                <div class="video-tag">
+                    <i class="bi bi-play-circle"></i> Video
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <div class="date">JUN 22, 2026</div>
+
+                <h4>താജുല്‍ ഉലമ സയ്യിദ് അബ്ദുറഹ്മാൻ അൽ ബുഖാരി ഉസ്താദ്</h4>
+
+                <p>
+                    സയ്യിദ് മുനീർ അൻവർ പ്രസിഡന്റ് എസ്.എസ്.എഫ് സംസ്ഥാന സമിതി...
+                </p>
+
+                <div class="circle">
+                    <i class="bi bi-play"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4 col-md-6">
+
+        <div class="video-card">
+
+            <div class="thumb">
+
+                <video class="video-thumb" autoplay muted loop playsinline>
+                    <source src="ss (2).mp4" type="video/mp4">
+                </video>
+
+                <span class="category">പുതുപാഠങ്ങൾ</span>
+
+                <div class="play">
+                    <i class="bi bi-play-fill"></i>
+                </div>
+
+                <div class="video-tag">
+                    <i class="bi bi-play-circle"></i> Video
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <div class="date">JUN 20, 2026</div>
+
+                <h4>സുന്നി ജീവിതത്തിന്റെ അടയാളങ്ങൾ</h4>
+
+                <p>
+                    മുഹമ്മദ് അൻസാർ താമരശ്ശേരി സംസാരിക്കുന്നു...
+                </p>
+
+                <div class="circle">
+                    <i class="bi bi-play"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4 col-md-6">
+
+        <div class="video-card">
+
+            <div class="thumb">
+
+                <video class="video-thumb" autoplay muted loop playsinline>
+                    <source src="ss (3).mp4" type="video/mp4">
+                </video>
+
+                <span class="category">RISALA DECODE</span>
+
+                <div class="play">
+                    <i class="bi bi-play-fill"></i>
+                </div>
+
+                <div class="video-tag">
+                    <i class="bi bi-play-circle"></i> Video
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <div class="date">JUN 18, 2026</div>
+
+                <h4>ബദലില്ലാത്തൊരു രാഷ്ട്രീയം</h4>
+
+                <p>
+                    പ്രകാശനം പരാജയപ്പെട്ടെന്ന് എങ്ങനെ?
+                </p>
+
+                <div class="circle">
+                    <i class="bi bi-play"></i>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+
+</html>
